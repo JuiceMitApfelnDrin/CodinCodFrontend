@@ -24,9 +24,15 @@ export const URLS = {
  Backend urls
  ----------------------------------
 */
+
+// FIXME: find a different way
+// FIXME: create hooks for different backend calls
+
 const BASE_BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 export const BACKEND_URLS = {
   users: BASE_BACKEND_URL + "users",
-  usersByNickname: BASE_BACKEND_URL + "users?nickname=",
+  usersBySubstringInNickname: BASE_BACKEND_URL + "users?substringInNickname=",
+  userByNickname: BASE_BACKEND_URL + "users?nickname=",
+  userByEmail: BASE_BACKEND_URL + "users?email=",
   register: BASE_BACKEND_URL + "register",
 };

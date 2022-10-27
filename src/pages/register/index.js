@@ -48,6 +48,28 @@ const Index = () => {
       });
   };
 
+  const fetchUserByNickname = useCallback(
+    debounce((value) => {
+      if (value) {
+        axios
+          .get(BACKEND_URLS.userByNickname + value)
+          .then(({ data: user }) => setSearchedUsers(user));
+      }
+    }, 750),
+    []
+  );
+
+  const fetchUserByEmail = useCallback(
+    debounce((value) => {
+      if (value) {
+        axios
+          .get(BACKEND_URLS.userByEmail + value)
+          .then(({ data: user }) => setSearchedUsers(user));
+      }
+    }, 750),
+    []
+  );
+
   return (
     <GeneralLayout>
       <Text fontSize="3xl">Welcome to the club</Text>

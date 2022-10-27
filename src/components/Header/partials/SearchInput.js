@@ -45,8 +45,8 @@ export const SearchInput = ({ value, onChange, list = [] }) => {
         >
           {list.map((val) => {
             return (
-              <>
-                <Link href={URLS.PROFILE + val.id}>
+              <div key={val._id}>
+                <Link href={URLS.PROFILE + val._id}>
                   <Box
                     as="span"
                     _hover={{
@@ -58,7 +58,6 @@ export const SearchInput = ({ value, onChange, list = [] }) => {
                     py="0.5rem"
                     onClick={() => {
                       setShowList(false);
-                      console.log("hey");
                     }}
                   >
                     {/* TODO: when users have profile pictures add their profile picture before their name */}
@@ -73,7 +72,7 @@ export const SearchInput = ({ value, onChange, list = [] }) => {
                   </Box>
                 </Link>
                 <Divider />
-              </>
+              </div>
             );
           })}
         </Box>
