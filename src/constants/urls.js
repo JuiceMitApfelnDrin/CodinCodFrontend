@@ -27,6 +27,6 @@ export const URLS = {
 const BASE_BACKEND_URL = process.env.NEXT_PUBLIC_BACKEND_URL;
 export const BACKEND_URLS = {
   users: BASE_BACKEND_URL + "users",
-  usersByUsername: BASE_BACKEND_URL + "users?username=",
+  usersByNickname: BASE_BACKEND_URL + "users?nickname=",
   register: BASE_BACKEND_URL + "register",
 };

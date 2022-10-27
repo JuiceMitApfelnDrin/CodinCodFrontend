@@ -12,17 +12,17 @@ import axios from "axios";
 import debounce from "lodash.debounce";
 
 export const Header = () => {
-  const [searchedUsername, setSearchedUsername] = useState("");
+  const [searchedNickname, setSearchedNickname] = useState("");
   const [searchedUsers, setSearchedUsers] = useState([]);
-  const { id: loggedInUserId, username, avatar } = useContext(UserContext);
+  const { id: loggedInUserId, nickname, avatar } = useContext(UserContext);
 
-  const fetchUsersWithUsername = useCallback(
+  const fetchUsersWithNickname = useCallback(
     debounce((value) => {
       if (value) {
         axios
-          .get(process.env.NEXT_PUBLIC_BACKEND_URL + "users?username=" + value)
-          .then(({ data: usersByUsername }) =>
-            setSearchedUsers(usersByUsername)
+          .get(process.env.NEXT_PUBLIC_BACKEND_URL + "users?nickname=" + value)
+          .then(({ data: usersByNickname }) =>
+            setSearchedUsers(usersByNickname)
           );
       }
     }, 750),
@@ -65,10 +65,10 @@ export const Header = () => {
       </HStack>
       <div>
         <SearchInput
-          value={searchedUsername}
+          value={searchedNickname}
           onChange={(e) => {
-            fetchUsersWithUsername(e.target.value);
-            setSearchedUsername(e.target.value);
+            fetchUsersWithNickname(e.target.value);
+            setSearchedNickname(e.target.value);
           }}
           list={searchedUsers}
         />
@@ -76,7 +76,7 @@ export const Header = () => {
       <HStack spacing="2rem">
         <NotificationMenu />
         <ProfileMenu
-          name={username}
+          name={nickname}
           src={avatar}
           menuOptions={profileMenuOptions}
         />

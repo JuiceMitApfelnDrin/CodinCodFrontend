@@ -65,7 +65,7 @@ const Index = () => {
                 setInvalid({
                   ...invalid,
                   nickname: !e.target.value.match(/.+/),
-                }); // && TODO: add a way to check if username is taken or not
+                }); // && TODO: add a way to check if nickname is taken or not
                 setRegistrationInformation({
                   ...registrationInformation,
                   nickname: e.target.value,

@@ -28,7 +28,7 @@ const Index = () => {
   const router = useRouter();
   const { id } = router.query;
 
-  const { username, avatar, location, isFollowing, socials } =
+  const { nickname, avatar, location, isFollowing, socials } =
     useContext(UserContext);
 
   return (
@@ -43,10 +43,10 @@ const Index = () => {
           p="8"
           m="8"
         >
-          <Avatar name={username} src={avatar} width="10rem" height="10rem" />
+          <Avatar name={nickname} src={avatar} width="10rem" height="10rem" />
 
           <Heading fontSize="md" as="h2">
-            {username}
+            {nickname}
           </Heading>
           <ButtonGroup py="2" size="sm" isAttached variant="outline">
             {isFollowing(id) ? (

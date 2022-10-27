@@ -69,7 +69,7 @@ export const SearchInput = ({ value, onChange, list = [] }) => {
                 alt="Fluffybuns the destroyer"
                 mr="12px"
               /> */}
-                    {val.username}
+                    {val.nickname}
                   </Box>
                 </Link>
                 <Divider />

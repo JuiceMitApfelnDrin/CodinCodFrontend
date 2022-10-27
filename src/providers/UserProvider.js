@@ -19,7 +19,7 @@ const UserProvider = ({ children }) => {
   const context = useMemo(() => {
     return {
       id: "6349bf55d0e1e15a1c20c832",
-      username: "Dan Abrahmov",
+      nickname: "Dan Abrahmov",
       location: "Thailand",
       avatar: "https://bit.ly/dan-abramov",
       notifications: [
