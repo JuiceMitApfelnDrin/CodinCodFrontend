@@ -7,16 +7,16 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { BACKEND_URLS, URLS } from "utils/constants/urls";
-import { Router, useRouter } from "next/router";
 
 import { ALERT_OPTIONS } from "utils/constants/alert";
+import { BACKEND_URLS } from "utils/constants/urls";
 import { Email } from "components/form/Email";
 import { Formik } from "formik";
 import GeneralLayout from "layouts/GeneralLayout";
 import { Nickname } from "components/form/Nickname";
 import { Password } from "components/form/Password";
 import axios from "axios";
+import { useRouter } from "next/router";
 import { validate } from "email-validator";
 
 const Index = () => {
@@ -71,7 +71,7 @@ const Index = () => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <VStack gap={6}>
+            <VStack gap={4}>
               {/* nickname */}
               <Nickname
                 description="Enter your desired nickname."

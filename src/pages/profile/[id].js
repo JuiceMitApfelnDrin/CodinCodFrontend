@@ -35,7 +35,7 @@ const Index = () => {
     <GeneralLayout>
       <HStack w="85%">
         <VStack
-          gap="1rem"
+          gap={2}
           bg="black"
           border="2px"
           borderRadius="6.9"
@@ -88,7 +88,7 @@ const Index = () => {
         </VStack>
         <VStack
           w="full"
-          gap="1rem"
+          gap={2}
           bg="black"
           border="2px"
           borderRadius="6.9"

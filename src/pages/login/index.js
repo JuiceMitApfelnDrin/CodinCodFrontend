@@ -31,6 +31,7 @@ const Index = () => {
           return axios
             .post(BACKEND_URLS.LOGIN, JSON.stringify(values))
             .then((res) => {
+              console.log(res, { cookie: document.cookie });
               // FIXME: redirect to home
             })
             .catch(({ response }) => {
@@ -51,7 +52,7 @@ const Index = () => {
           isSubmitting,
         }) => (
           <form onSubmit={handleSubmit}>
-            <VStack gap={6}>
+            <VStack gap={4}>
               {/* nickname */}
               <Nickname
                 description="Enter your desired nickname."

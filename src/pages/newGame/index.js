@@ -21,33 +21,29 @@ import { useEffect, useState } from "react";
 
 import GeneralLayout from "layouts/GeneralLayout";
 import axios from "axios";
+import supportedLanguages from "api/supportedLanguages";
+
+const labelStyles = {
+  mt: "2",
+  ml: "-2.5",
+  fontSize: "sm",
+};
 
 const Index = () => {
   const [sliderValue, setSliderValue] = useState(15);
-  const [typeValues, setTypeValues] = useState([]);
-
-  const labelStyles = {
-    mt: "2",
-    ml: "-2.5",
-    fontSize: "sm",
-  };
-
-  const fetchLanguages = async () => {
-    fetch("https://emkc.org/api/v2/piston/runtimes").then((res) =>
-      res.json().then((items) => {
-        setTypeValues(items);
-      })
-    );
-  };
+  const [languages, setLanguages] = useState([]);
 
   const sendToApiDingPls = () => {
-    axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + "game/create", {
+    axios.get(process.env.NEXT_PUBLIC_BACKEND_URL + "games/create", {
       testingDing: "hey",
     });
   };
 
   useEffect(() => {
-    fetchLanguages();
+    supportedLanguages().then(({ data }) => {
+      setLanguages(data);
+      console.log(data, languages);
+    });
   }, []);
 
   const modes = [
@@ -68,8 +64,14 @@ const Index = () => {
         >
           Host a new game
         </Heading>
+
+        {/* TODO: fix this layout, its ugly */}
+
         <FormControl>
-          <FormLabel color="white">Public</FormLabel>
+          <FormLabel color="white">Public game</FormLabel>
+          <FormHelperText>
+            Public means anyone can join, private you need to share by link.
+          </FormHelperText>
           <Switch defaultChecked colorScheme="pink" />
         </FormControl>
 
@@ -147,15 +149,15 @@ const Index = () => {
           <FormLabel color="white">Programming languages</FormLabel>
           {/* TODO: make this a list of checkboxes instead of this thing, if no option is selected, assume all */}
           <Select color="white">
-            {typeValues
-              .map((i) => i.language)
+            {languages
+              .map((i) => i.name)
               .sort()
               .map((option, index) => (
-                <option key={index}>{option}</option>
+                <option key={option + index}>{option}</option>
               ))}
           </Select>
         </FormControl>
-        <HStack spacing="2rem">
+        <HStack spacing="2rem" mt={2}>
           <Button type="reset">reset</Button>
           <Button bg="teal" type="submit" onClick={() => sendToApiDingPls()}>
             Host new game
