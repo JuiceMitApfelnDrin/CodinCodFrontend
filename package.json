@@ -27,5 +27,18 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "typescript": "^4.7.2"
+  },
+  "moduleNameMapper": {
+    "^pages(.*)$": "<rootDir>/src/pages$1",
+    "^tests(.*)$": "<rootDir>/src/tests$1",
+    "^mocks(.*)$": "<rootDir>/src/mocks$1",
+    "^components(.*)$": "<rootDir>/src/components$1",
+    "^hooks(.*)$": "<rootDir>/src/hooks$1",
+    "^utils(.*)$": "<rootDir>/src/utils$1",
+    "^assets(.*)$": "<rootDir>/src/assets$1",
+    "^providers(.*)$": "<rootDir>/src/providers$1",
+    "^api(.*)$": "<rootDir>/src/api$1",
+    "\\.(jpg|jpeg|png|svg)$": "<rootDir>/__mocks__/fileMock.js",
+    "\\.css$": "<rootDir>/__mocks__/styleMock.js"
   }
 }

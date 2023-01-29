@@ -1,8 +1,9 @@
 import { BACKEND_URLS, URLS } from "utils/constants/urls";
-import { Flex, HStack } from "@chakra-ui/react";
+import { Flex, HStack, Heading, Text } from "@chakra-ui/react";
 import { useCallback, useContext, useState } from "react";
 
 import HeaderItem from "./partials/HeaderItem";
+import Image from "next/image";
 import Link from "next/link";
 import { NotificationMenu } from "./partials/NotificationMenu";
 import { ProfileMenu } from "./partials/ProfileMenu";
@@ -48,8 +49,12 @@ export const Header = () => {
       bg="black"
       height="7vh"
     >
-      <HStack spacing="1rem">
-        <Link href={URLS.HOME}>GameCodin</Link>
+      <HStack gap="1rem">
+        <Link href={URLS.HOME}>
+          <Text margin={"-0.5"} fontSize={"2xl"}>
+            CodinCod
+          </Text>
+        </Link>
         <HeaderItem
           label="Play"
           options={[{ href: "/newGame", label: "Host a game" }]}
