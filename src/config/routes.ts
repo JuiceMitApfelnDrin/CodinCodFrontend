@@ -1,7 +1,9 @@
 export const urls = {
 	profile: '/profile',
 	settings: '/settings',
-	signOut: '/sign-out',
+	logout: '/logout',
 	root: '/',
-	puzzle: '/puzzle'
+	puzzle: '/puzzle',
+	register: '/register',
+	login: '/login'
 };
